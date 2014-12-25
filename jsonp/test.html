@@ -10,9 +10,36 @@
 <body>
 <script type="text/javascript">
 $(function(){
+        
+        /*
+         //这样也是一种方法
+        $.ajax({  
+
+           url: "http://chester.com/test.php",  
+
+           type: "get",  
+
+           dataType: 'jsonp',  
+
+           jsonp: 'callback',  
+
+           //data: qsData,  
+
+           timeout: 2000,  
+
+           success: function (json) {//客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数  
+
+               console.debug(json);  
+
+           }  
+
+       });
+       */
+
+    
     $.getJSON("http://chester.com/test.php?callback=?",function(data){
         console.debug(data);
-    });      
+    });
 });
 </script>
 </body>
