@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>首页</title>
+        <script src="jquery.js"></script>
+        <script src="ajaxfileupload.js"></script>
+        <script src="upload.js"></script>
+    </head>
+
+<body>
+
+<div class="mask">
+
+    <form id="formContent" methmd="post" class="basicInfo tabForm" onsubmit="return false" enctype="multipart/form-data">
+            <label style="float:left;">上传图片:</label>
+            <div class="basicInfoUpload left">
+                <div class="eachUpload left">
+                    <center>
+                        <img class="btn_upload" src="/static/images/back/upload.png" alt="">
+                        <input type="file" id="small_img" name="small_img" style="display:none">
+                        <p>小头像</p>
+                    </center>
+                </div>
+                <div class="eachUpload left" style="margin-left:20px;">
+                    <center>
+                        <img class="btn_upload" src="/static/images/back/upload.png" alt="">
+                        <input type="file" id="big_img" name="big_img" style="display:none">
+                        <p>大头像</p>
+                    </center>
+                </div>
+            </div>
+    </form>
+
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+$(function(){
+
+    //对于图片的上传操作
+    $(".btn_upload").click(function(){
+        $(this).siblings("input").trigger("click");
+    });
+
+    var url = '/back/adduser'; //post url
+    var postParams = formParams($("#formContent"));//其他post参数
+    var fileIds = ['small_img', 'big_img']; //要上传文件的ids
+
+    ajaxFileUpload(url, postParams, fileIds);
+
+});
+
+</script>
+
+</body>
+</html>
+
