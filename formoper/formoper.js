@@ -1,4 +1,5 @@
 //获取某节点下所有form元素的取值,并组织好key,value形式返回
+//
 function formParams(obj){                                                                                                                    
     var postParams = {};
     
